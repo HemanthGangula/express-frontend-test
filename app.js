@@ -11,6 +11,12 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'index.html'));
 });
 
+// Route to generate a random number
+app.get('/random', (req, res) => {
+    const randomNumber = Math.floor(Math.random() * 100) + 1;
+    res.json({ number: randomNumber });
+});
+
 // Start the server
 app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);
